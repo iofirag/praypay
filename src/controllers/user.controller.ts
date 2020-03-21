@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import GenericFunctions from "./genericFunctions";
+import GenericFunctions, { GenericController } from "./genericFunctions";
 import { UserModel as model } from "../models/user.model";
 
-export class UserController {
+export class UserController implements GenericController {
   // ***************** CRUD *********************************
   public static create = async (req: Request, res: Response) => {
     const newItem = { ...req.body };

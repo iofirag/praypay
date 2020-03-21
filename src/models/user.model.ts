@@ -1,8 +1,9 @@
-import { Document, Schema, Model, model } from 'mongoose';
+import { Document, Schema, Model, model, Types } from 'mongoose';
 import { CollectionsNames } from "../utils/consts";
 
 
 export interface IUser extends Document {
+    _id: Types.ObjectId,
     email: string,
     phone: string,
     firstName: string,
@@ -11,7 +12,8 @@ export interface IUser extends Document {
     creditCardToken: string
 }
 
-const UserSchema: Schema = new Schema<IUser>({
+const UserSchema: Schema<IUser> = new Schema<IUser>({
+    _id: { type: Schema.Types.ObjectId },
     email: { type: String },
     phone: { type: String },
     firstName: { type: String },
@@ -19,7 +21,7 @@ const UserSchema: Schema = new Schema<IUser>({
     address: { type: String },
     creditCardToken: { type: String }
 }, 
-{ collection: CollectionsNames.USER });
+{ collection: CollectionsNames.User });
 
 /* pre functions */
 UserSchema.pre<IUser>('save', async function(next) {
@@ -31,4 +33,4 @@ UserSchema.pre<IUser>('save', async function(next) {
     }
 });
 
-export const UserModel: Model<IUser> = model<IUser>(CollectionsNames.USER, UserSchema);
+export const UserModel: Model<IUser> = model<IUser>(CollectionsNames.User, UserSchema);

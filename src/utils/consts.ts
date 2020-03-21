@@ -1,5 +1,11 @@
 export const CollectionsNames = {
-  USER: 'user'
+  User: 'user',
+  Synagogue: 'synagogue',
+  Member: 'member',
+  Role: 'role',
+  Debt: 'debt',
+  Payment: 'payment',
+  Counter: 'counter',
 };
 
 export enum DBConnectionStatusEnum {

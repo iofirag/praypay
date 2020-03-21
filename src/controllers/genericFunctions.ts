@@ -3,6 +3,9 @@ import { Request, Response } from "express";
 import Utils from "../utils/utils";
 import { Model, Document } from "mongoose";
 
+export interface GenericController {
+
+}
 export default class GenericFunctions {
   // ***************** CRUD *********************************
   public static create = async (
